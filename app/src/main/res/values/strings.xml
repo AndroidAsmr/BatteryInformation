@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BatteryInformation</string>
+    <string name="battery_information">Battery Information</string>
+    <string name="_50">50%</string>
+    <string name="battery_status">Battery Status</string>
+    <string name="voltage">Voltage</string>
+    <string name="_5">5</string>
+    <string name="temperature">Temperature</string>
+    <string name="plug_state">Plug State</string>
+    <string name="technology">Technology</string>
+</resources>

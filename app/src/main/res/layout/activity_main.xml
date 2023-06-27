@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/nunito_black"
+        android:text="@string/battery_information"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.mikhaellopez.circularfillableloaders.CircularFillableLoaders
+        android:id="@+id/batteryProgress"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="60dp"
+        app:cfl_border="true"
+        app:cfl_border_width="4dp"
+        app:cfl_progress="50"
+        app:cfl_wave_amplitude="0.02"
+        app:cfl_wave_color="#0275d8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+
+    <TextView
+        android:id="@+id/tvBatteryLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_black"
+        android:text="@string/_50"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@id/batteryProgress"
+        app:layout_constraintLeft_toLeftOf="@id/batteryProgress"
+        app:layout_constraintRight_toRightOf="@id/batteryProgress"
+        app:layout_constraintTop_toTopOf="@id/batteryProgress"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        app:cardBackgroundColor="#1E1637"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/batteryProgress"
+        app:layout_constraintWidth_percent="0.8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95"/>
+
+            <TextView
+                android:id="@+id/cardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_black"
+                android:text="@string/battery_status"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/guide5"
+                app:layout_constraintEnd_toStartOf="@id/guide4"
+                app:layout_constraintStart_toStartOf="@id/guide3"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/ivVoltage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/bolt"
+                app:layout_constraintBottom_toTopOf="@id/guide1"
+                app:layout_constraintStart_toStartOf="@id/guide3"
+                app:layout_constraintTop_toTopOf="@id/guide5"
+                app:layout_constraintVertical_bias="0.55"/>
+
+            <TextView
+                android:id="@+id/tvVoltageHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/voltage"
+                android:textColor="#C5C5C5"
+                app:layout_constraintStart_toEndOf="@id/ivVoltage"
+                app:layout_constraintTop_toTopOf="@id/ivVoltage"/>
+
+            <TextView
+                android:id="@+id/tvVoltageValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/_5"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/ivVoltage"
+                app:layout_constraintStart_toEndOf="@id/ivVoltage"
+                app:layout_constraintTop_toBottomOf="@id/tvVoltageHeader"/>
+
+
+            <ImageView
+                android:id="@+id/ivTemperature"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/thermometer"
+                app:layout_constraintBottom_toTopOf="@id/guide1"
+                app:layout_constraintStart_toStartOf="@id/guide2"
+                app:layout_constraintTop_toTopOf="@id/guide5"
+                app:layout_constraintVertical_bias="0.55"/>
+
+            <TextView
+                android:id="@+id/tvTemperatureHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/temperature"
+                android:textColor="#C5C5C5"
+                app:layout_constraintStart_toEndOf="@id/ivTemperature"
+                app:layout_constraintTop_toTopOf="@id/ivTemperature"/>
+
+            <TextView
+                android:id="@+id/tvTemperatureValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/_5"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/ivTemperature"
+                app:layout_constraintStart_toEndOf="@id/ivTemperature"
+                app:layout_constraintTop_toBottomOf="@id/tvTemperatureHeader"/>
+
+            <ImageView
+                android:id="@+id/ivPlugIn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/plugin"
+                app:layout_constraintBottom_toTopOf="@id/guide6"
+                app:layout_constraintStart_toStartOf="@id/guide2"
+                app:layout_constraintTop_toTopOf="@id/guide1"
+                app:layout_constraintVertical_bias="0.55"/>
+
+            <TextView
+                android:id="@+id/tvPlugInHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/plug_state"
+                android:textColor="#C5C5C5"
+                app:layout_constraintStart_toEndOf="@id/ivPlugIn"
+                app:layout_constraintTop_toTopOf="@id/ivPlugIn"/>
+
+            <TextView
+                android:id="@+id/tvPlugInValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/_5"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/ivPlugIn"
+                app:layout_constraintStart_toEndOf="@id/ivPlugIn"
+                app:layout_constraintTop_toBottomOf="@id/tvPlugInHeader"/>
+
+            <ImageView
+                android:id="@+id/ivTechnology"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/technology"
+                app:layout_constraintBottom_toTopOf="@id/guide6"
+                app:layout_constraintStart_toStartOf="@id/guide3"
+                app:layout_constraintTop_toTopOf="@id/guide1"
+                app:layout_constraintVertical_bias="0.55"/>
+
+            <TextView
+                android:id="@+id/tvTechnologyHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/technology"
+                android:textColor="#C5C5C5"
+                app:layout_constraintStart_toEndOf="@id/ivTechnology"
+                app:layout_constraintTop_toTopOf="@id/ivTechnology"/>
+
+            <TextView
+                android:id="@+id/tvTechnologyValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/_5"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/ivTechnology"
+                app:layout_constraintStart_toEndOf="@id/ivTechnology"
+                app:layout_constraintTop_toBottomOf="@id/tvTechnologyHeader"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
